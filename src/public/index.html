@@ -1,0 +1,69 @@
+<!--
+    Filename: index.html                  
+    Author: Christopher Piccini <cpiccini11@gmail.com>
+    Copyright (C) [2024] Christopher Piccini
+    *
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    *
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+    *
+    You should have received a copy of the GNU General Public License
+    along with this program. If not, see <https://www.gnu.org/licenses/>.
+  
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChrisP Image Compressor</title>
+    <link rel="stylesheet" type="text/css" href="assets/styles.css" />
+  </head>
+  <body class="bg-slate-200">
+    <div class="container mx-auto px-4 py-5">
+      <h1 class="text-4xl font-bold mb-5">ChrisP Image Compressor</h1>
+      <p class="mb-5">
+        <strong>Directions:</strong> Select a folder containing images you would like Compressed. Then, click on the Compress Images button. After the
+        images are compressed you will be prompted to download a zip file containing the compressed images.
+      </p>
+      <div class="flex flex-col items-center pt-3">
+        <label for="directory-input" class="w-full">
+          <input type="file" id="directory-input" webkitdirectory class="hidden" />
+          <div
+            style="margin-bottom: 5px"
+            class="bg-white mb-15 w-full py-5 px-8 text-center cursor-pointer text-gray-600 hover:bg-gray-100 transition-colors duration-300 ease-in-out border-2 border-gray-300 border-dashed rounded-lg"
+          >
+            Click here to select your folder containing images to be compressed!
+          </div>
+          <p id="file-count-container" class="hidden">Images to be compressed: <span id="file-count">0</span></p>
+        </label>
+        <button
+          id="compress-images"
+          class="bg-blue-500 text-white font-semibold py-2 px-6 rounded mt-5 hover:bg-blue-600 transition-colors duration-300 ease-in-out"
+        >
+          Compress Images
+        </button>
+      </div>
+    </div>
+    <script>
+      const directoryInput = document.getElementById("directory-input")
+      const fileCountElement = document.getElementById("file-count")
+
+      directoryInput.addEventListener("change", event => {
+        const files = event.target.files
+        fileCountElement.textContent = files.length
+        if (files.length > 0) {
+          document.getElementById("file-count-container").classList.remove("hidden")
+        }
+      })
+    </script>
+    <script src="main.js"></script>
+  </body>
+</html>
