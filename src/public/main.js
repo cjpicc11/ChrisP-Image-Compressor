@@ -17,10 +17,10 @@
     along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 */
-const directoryInput = document.getElementById("directory-input")
+const folderInput = document.getElementById("directory-input")
 const compressImagesBtn = document.getElementById("compress-images")
 
-directoryInput.addEventListener("change", e => {
+folderInput.addEventListener("change", e => {
   const files = e.target.files
 
   compressImagesBtn.addEventListener("click", () => {
