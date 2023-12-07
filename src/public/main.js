@@ -17,7 +17,7 @@
     along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 */
-const folderInput = document.getElementById("directory-input")
+const folderInput = document.getElementById("files-input")
 const compressImagesBtn = document.getElementById("compress-images")
 
 folderInput.addEventListener("change", e => {
