@@ -59,7 +59,7 @@ app.post("/compress-images", upload.array("images"), async (req, res) => {
           .toBuffer()
       } else if (image.mimetype === "image/png") {
         imgBuffer = await sharp(image.buffer)
-          .png({ compressionLevel: 7 }) // Adjust the compressionLevel value (0-9) to control compression
+          .png({ quality: 70 }) // Adjust the compressionLevel value (0-9) to control compression
           .toBuffer()
       } else {
         imgBuffer = image.buffer // Keep the original buffer for other image types
